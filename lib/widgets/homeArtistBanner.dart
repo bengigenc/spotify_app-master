@@ -20,22 +20,21 @@ class _HomeArtistBannerState extends State<HomeArtistBanner> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
-      margin: EdgeInsets.only(left: 5.w,top: 2.h, bottom: 5.h),
+      margin: EdgeInsets.only(right: 3.w),
         child: Column(
           children: [
             Stack(
               
               children:[Container(
                 
-                height: 18.h,
-                width: 25.w,
+                height: 21.h,
+                width: 31.w,
                 child: Image.asset(widget.resimurl),
 
               ),
               Container(
                 height: 4.h,
-            margin: EdgeInsets.only(top: 15.h, left: 16.w),
+            margin: EdgeInsets.only(top: 18.h, left: 20.w),
                 child: Image.asset(widget.iconurl),
               )
               ] 

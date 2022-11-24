@@ -16,59 +16,135 @@ class _HomePagesState extends State<HomePages> {
   List<Map<String, String>> categori = [
     {
       "image": "assets/images/artsist.png",
-      "icon":"assets/images/play.png",
+      "icon": "assets/images/play.png",
       "song": "Bad Guy",
       "artist": "Billie Ellish"
     },
-     {
+    {
       "image": "assets/images/artsist.png",
-      "icon":"assets/images/play.png",
+      "icon": "assets/images/play.png",
       "song": "Scorpion",
       "artist": "Drake"
     },
-     {
+    {
       "image": "assets/images/artsist.png",
-      "icon":"assets/images/play.png",
+      "icon": "assets/images/play.png",
       "song": "WHEN WE...",
       "artist": "Billie Ellish"
+    },
+    {
+      "image": "assets/images/artsist.png",
+      "icon": "assets/images/play.png",
+      "song": "WHEN WE...",
+      "artist": "Billie Ellish"
+    },
+    {
+      "image": "assets/images/artsist.png",
+      "icon": "assets/images/play.png",
+      "song": "WHEN WE...",
+      "artist": "Billie Ellish"
+    },
+  ];
+
+  List<Map<String, String>> playlist_song = [
+    {
+      "playlist_song": "As It Was",
+      "playlist_artist": "Billie Eilish",
+      "duration": "5:33"
+    },
+    {
+      "playlist_song": "As It Was",
+      "playlist_artist": "Billie Eilish",
+      "duration": "5:33"
+    },
+    {
+      "playlist_song": "As It Was",
+      "playlist_artist": "Billie Eilish",
+      "duration": "5:33"
+    },
+    {
+      "playlist_song": "As It Was",
+      "playlist_artist": "Billie Eilish",
+      "duration": "5:33"
+    },
+    {
+      "playlist_song": "As It Was",
+      "playlist_artist": "Billie Eilish",
+      "duration": "5:33"
+    },
+    {
+      "playlist_song": "As It Was",
+      "playlist_artist": "Billie Eilish",
+      "duration": "5:33"
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(top: 20),
-          width: 700,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Icon(Icons.search),
-              Container(
-                height: 35,
-                width: 208,
-                child: Image.asset("assets/images/spotifylogo.png"),
+      body: Container(
+        margin: EdgeInsets.all(1.h),
+        child: Column(children: [
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(Icons.search),
+                Container(
+                  height: 7.h,
+                  width: 30.w,
+                  child: Image.asset("assets/images/spotifylogo.png"),
+                ),
+                Icon(Icons.menu)
+              ],
+            ),
+          ),
+          HomeBanner(),
+          HomeListText(),
+          Container(
+            child: SizedBox(
+              height: 30.h,
+              width: 100.w,
+              child: ListView.builder(
+                itemCount: categori.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return HomeArtistBanner(
+                      resimurl: categori[index]["image"].toString(),
+                      song: categori[index]["song"].toString(),
+                      artistname: categori[index]["artist"].toString(),
+                      index: index,
+                      iconurl: categori[index]["icon"].toString());
+                },
               ),
-              Icon(Icons.menu)
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Playlist",
+                style: BannerTextStyleBig.SongStyle,
+              ),
             ],
           ),
-        ),
-        HomeBanner(),
-        HomeListText(),
-Container(child: SizedBox(height: 31.h,
-child: ListView.builder(itemCount: categori.length,scrollDirection: Axis.horizontal,itemBuilder: (context, index) {
-  return HomeArtistBanner(resimurl: categori[index]["image"].toString(),
-   song: categori[index]["song"].toString(),
-    artistname: categori[index]["artist"].toString(), index: index, 
-    iconurl: categori[index]["icon"].toString());
-},),),),
-Row(children: [
-  Text("Playlist"),
-  Text("See More"),
-  Text(""),
-      ],)]
-    ));
+
+          Container(
+
+            // burada kaldım. LİSTEYİ TAMAMLA.
+          )
+        ]),
+      ),
+    );
   }
+}
+
+class BannerTextstyle {
+  static TextStyle AlbumStyle =
+      TextStyle(color: Color(0xff000000), fontSize: 14);
+}
+
+class BannerTextStyleBig {
+  static TextStyle SongStyle = TextStyle(
+      color: Color(0xff000000), fontSize: 16, fontWeight: FontWeight.bold);
 }
