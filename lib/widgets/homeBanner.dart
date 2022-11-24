@@ -14,24 +14,42 @@ class _HomeBannerState extends State<HomeBanner> {
   @override
   Widget build(BuildContext context) {
     return  Container(
+      padding: EdgeInsets.only(left: 6.w),
         decoration: BoxDecoration(
-            color: Color(0xff42C83C), borderRadius: BorderRadius.circular(20)),
+            color: Color(0xff42C83C), borderRadius: BorderRadius.circular(20.sp)),
         height: 15.h,
-        width: 90.w,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        width: 100.w,
+        child: Row(
           children: [
-            Text(
-              "New Album",
-              style: BannerTextstyle.AlbumStyle,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "New Album",
+                  style: BannerTextstyle.AlbumStyle,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Happier Than",
+                       style: BannerTextStyleBig.SongStyle),
+                    Text("Ever",
+                       style: BannerTextStyleBig.SongStyle),
+                  ],
+                ),
+                Text(
+                  "Billie Ellish",
+                  style: BannerTextstyle.AlbumStyle,
+                )
+              ],
             ),
-            Text("Happier Than Ever",
-               style: BannerTextStyleBig.SongStyle),
-            Text(
-              "Billie Ellish",
-              style: BannerTextstyle.AlbumStyle,
-            )
+            Container(
+            
+            
+              margin: EdgeInsets.only(left: 25.w,),
+              child: Image.asset("assets/images/billie.png"),)
           ],
         ),
       )

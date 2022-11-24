@@ -4,7 +4,12 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PlayList extends StatefulWidget {
-  const PlayList({super.key});
+  const PlayList({super.key, required this.list_song, required this.list_artist, required this.time, required this.index});
+
+final String list_song;
+final String list_artist;
+final String time;
+final int index;
 
   @override
   State<PlayList> createState() => _PlayListState();
@@ -24,16 +29,16 @@ class _PlayListState extends State<PlayList> {
             Column(
               children: [
                 Text(
-                  "As It Was",
+                  widget.list_song,
                   style: BannerTextStyleBig.SongStyle,
                 ),
                 Text(
-                  "Harry Styles",
+                  widget.list_artist,
                   style: BannerTextstyle.AlbumStyle,
                 )
               ],
             ),
-            Text("5:33", style: BannerTextStyleBig.SongStyle,),
+            Text(widget.time, style: BannerTextStyleBig.SongStyle,),
             Icon(Icons.favorite, color: Color(0xffB4B4B4),)
           ],
         ),
