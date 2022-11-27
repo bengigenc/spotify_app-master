@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:spotify_app/navbar/navbar.dart';
 import 'package:spotify_app/pages/articspage.dart';
 import 'package:spotify_app/pages/homepage.dart';
 

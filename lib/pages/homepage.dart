@@ -4,7 +4,7 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:spotify_app/navbar/navbar.dart';
+
 import 'package:spotify_app/pages/articspage.dart';
 import 'package:spotify_app/pages/profilepage.dart';
 import 'package:spotify_app/widgets/home_ArtistBanner.dart';
