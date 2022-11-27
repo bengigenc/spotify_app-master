@@ -50,7 +50,7 @@ class _HomePagesState extends State<HomePages> {
                 style: Theme.of(context)
                     .textTheme
                     .headline6
-                    ?.copyWith(fontSize: 16, fontWeight: FontWeight.bold),
+                    ?.copyWith(fontSize: 18.sp, fontWeight: FontWeight.bold),
               ),
             ),
             PlayList(),

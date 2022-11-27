@@ -28,6 +28,8 @@ class _HomeArtistBannerState extends State<HomeArtistBanner> {
     return Consumer(
       builder: (context, ReleasesProvider value, child) {
         return Container(
+          margin: EdgeInsets.only(top: 2.h),
+          alignment: Alignment.centerLeft,
           height: 31.h,
           width: double.infinity,
           child: value.isReleasesDataLoaded == true
@@ -36,40 +38,57 @@ class _HomeArtistBannerState extends State<HomeArtistBanner> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Container(
-                      height: 31.h,
+                      
+                      height: 27.h,
                       width: 30.w,
                       margin: EdgeInsets.only(right: 2.h),
                       child: Column(
                         children: [
                           Stack(children: [
                             Container(
-                              height: 24.h,
+                              height: 21.h,
                               width: 33.w,
-                              child: Image.network(
-                                  "${value.releasesData!.albums!.items![index].images![0].url}"),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.sp),
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          "${value.releasesData!.albums!.items![index].images![0].url}"),
+                                      fit: BoxFit.cover)),
+                              //child:
+                              //Image.network("${value.releasesData!.albums!.items![index].images![0].url}"),
                             ),
                             Container(
                               height: 4.h,
-                              margin: EdgeInsets.only(top: 19.5.h, left: 23.w),
+                              margin: EdgeInsets.only(top: 19.h, left: 21.w),
                               child: Image.asset("assets/images/play.png"),
                             )
                           ]),
-                          Text(
-                            "${value.releasesData!.albums!.items![index].name}",
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline6
-                                ?.copyWith(fontSize: 16),
+                          Container(
+                            padding: EdgeInsets.only(left: 2.w),
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "${value.releasesData!.albums!.items![index].name}",
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  ?.copyWith(fontSize: 17.sp, fontWeight: FontWeight.bold),
+                            ),
                           ),
-                          Text(
-                            "${value.releasesData!.albums!.items![index].artists![0].name}",
-                            textAlign: TextAlign.left,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline5
-                                ?.copyWith(fontSize: 14),
+                          Container(
+                            padding: EdgeInsets.only(left: 2.w, top: 1.h),
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "${value.releasesData!.albums!.items![index].artists![0].name}",
+                              textAlign: TextAlign.left,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5
+                                  ?.copyWith(fontSize: 16.sp),
+                            ),
                           ),
                         ],
                       ),

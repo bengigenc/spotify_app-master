@@ -19,6 +19,7 @@ class _ArticsBannerTextState extends State<ArticsBannerText> {
       height: 16.h,
       width: 90.w,
       child: Column(
+        
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(

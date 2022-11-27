@@ -34,48 +34,64 @@ class _ProfilePlaylistState extends State<ProfilePlaylist> {
                     itemCount: value.profileListData!.items!.length,
                     itemBuilder: (context, index) {
                       return Container(
+                        
+                        margin: EdgeInsets.only(left: 6.w, right: 6.w),
                         height: 9.h,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              height: 9.h,
-                              width: 15.w,
-                              child: value.profileListData!.items![index].images!.length== 0?Image.asset("assets/images/play.png"):
-                              Image.network(
-                                "${value.profileListData!.items![index].images![0].url!}",
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(right: 30.w),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text(
-                                    "${value.profileListData!.items![index].name}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline6
-                                        ?.copyWith(fontSize: 10),
+                            Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(right: 3.w),
+                                  height: 9.h,
+                                  width: 15.w,
+                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(18.sp),image: DecorationImage(image: NetworkImage("${value.profileListData!.items![index].images![0].url!}"))),
+                                 
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Text(
+                                          "${value.profileListData!.items![index].name}",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline6
+                                              ?.copyWith(fontSize: 10),
+                                        ),
+                                      
+                                      Text(
+                                          "${value.profileListData!.items![index].owner!.displayName}",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline5
+                                              ?.copyWith(fontSize: 10),
+                                        ),
+                                     
+                                    ],
                                   ),
-                                  Text(
-                                    "${value.profileListData!.items![index].owner!.displayName}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline5
-                                        ?.copyWith(fontSize: 10),
-                                  )
-                                ],
-                              ),
+                              ],
                             ),
-                            Text("${value.profileListData!.items![index].tracks!.total}",
-                                style: Theme.of(context).textTheme.subtitle2),
-                            Icon(
-                              Icons.more_horiz,
-                              color: Color(0xffB4B4B4),
-                              size: 18,
+                            
+                            Row(
+                              children: [
+                                Container(
+                                margin: EdgeInsets.only(right: 4.w),
+                                  child: Text("${value.profileListData!.items![index].tracks!.total}",
+                                      style: Theme.of(context).textTheme.subtitle2),
+                                ),
+                                Container(
+                                 
+                                  child: Icon(
+                                    Icons.more_horiz,
+                                    color: Color(0xffB4B4B4),
+                                    size: 18,
+                                  ),
+                                ),
+                              ],
                             )
                           ],
                         ),

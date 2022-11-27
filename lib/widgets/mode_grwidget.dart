@@ -26,7 +26,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
     return Consumer(
       builder: (context, ModeListProvider value, child) {
         return Container(
-          height: 71.h,
+          height: 63.h,
           width: 100.w,
           margin: EdgeInsets.only(top: 3.h),
           child: value.isModeDataLoaded == true
@@ -36,7 +36,6 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                       childAspectRatio: 5 / 3,
                       crossAxisSpacing: 4.w,
                       mainAxisSpacing: 2.h),
-                      
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
@@ -45,8 +44,13 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                           border: Border.all(width: 2.sp, color: Colors.black),
                           image: DecorationImage(
                               image: NetworkImage(
-                                  "${value.modeData!.categories!.items![index].icons![0].url}"),fit: BoxFit.cover)),
-                                  child: Text("${value.modeData!.categories!.items![index].name}", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),),
+                                  "${value.modeData!.categories!.items![index].icons![0].url}"),
+                              fit: BoxFit.cover)),
+                      child: Text(
+                        "${value.modeData!.categories!.items![index].name}",
+                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     );
                   })
               : Container(),
@@ -55,73 +59,3 @@ class _GridViewWidgetState extends State<GridViewWidget> {
     );
   }
 }
- //CustomScrollView(
-    //   slivers: <Widget>[
-    //     SliverPadding(
-    //       padding: const EdgeInsets.all(20),
-    //       sliver: SliverGrid.count(
-    //         crossAxisSpacing: 4.w,
-    //         mainAxisSpacing: 2.h,
-    //         crossAxisCount: 2,
-    //         children: <Widget>[
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //           Container(
-    //             color: Colors.blue,
-    //             child: Text(""),
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ],
-    // )
-
-        // Container(
-        //   child: Text("dgksagddj"),
-        //   height: 20.h,
-        //   width: 40.w,
-        //   decoration: BoxDecoration(
-        //       borderRadius: BorderRadius.circular(20.sp), color: Colors.amber),
-        // ),

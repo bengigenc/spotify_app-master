@@ -20,15 +20,22 @@ import 'package:spotify_app/widgets/mode_grwidget.dart';
 import 'package:spotify_app/widgets/mode_search.dart';
 
 void main() {
-  runApp(MultiProvider(
-    child: MyApp(),
-    providers: [
-      ChangeNotifierProvider(create: (context) => MainProvider(),),
-    ChangeNotifierProvider(create: (context) => ReleasesProvider(),),
-    ChangeNotifierProvider(create: (context) => ProfileProvider(),),
-    ChangeNotifierProvider(create: (context) => ProfileListProvider(),),
-    ChangeNotifierProvider(create: (context) => ModeListProvider(),),
- 
+  runApp(MultiProvider(child: MyApp(), providers: [
+    ChangeNotifierProvider(
+      create: (context) => MainProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => ReleasesProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => ProfileProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => ProfileListProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => ModeListProvider(),
+    ),
   ]));
 }
 
@@ -45,18 +52,17 @@ class _MyAppState extends State<MyApp> {
     return ResponsiveSizer(
       builder: (context, orientation, screenType) {
         return MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: const MyHomePage(
+            title: 'Flutter Demo',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
+            home: const MyHomePage(
               title: "",
-        ));
+            ));
       },
     );
   }
 }
-
 
 class MainProvider extends ChangeNotifier {
   int selectedIndex = 0;
@@ -65,10 +71,9 @@ class MainProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  
 
   final String title;
 
@@ -77,8 +82,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
- int selectedIndex = 0;
+  int selectedIndex = 0;
   onTap(index) {
     setState(() {
       selectedIndex = index;
@@ -94,90 +98,86 @@ class _MyHomePageState extends State<MyHomePage> {
     const ProfilePage(),
   ];
 
-  
-
 // final List<Widget> _choice = [
 //     HomePages(),
 //     ModePage(),
 //     ArticsPage(),
 //     ModePage(),
-  
+
 //   ];
-
-
-
 
   @override
   Widget build(BuildContext context) {
-    
     return Consumer(
       builder: (context, MainProvider value, child) {
         return Scaffold(
           body: screens[selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        onTap: onTap,
-        elevation: 0,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        items: [
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/images/navbar_home.png",
-                color:
-                    selectedIndex == 0 ? Color(0xff1ED760) : Color(0xff808080),
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/images/navbar_discover.png",
-                color:
-                    selectedIndex == 1 ? Color(0xff1ED760) : Color(0xff808080),
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/images/navbar_heart.png",
-                color:
-                    selectedIndex == 2 ? Color(0xff1ED760) : Color(0xff808080),
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/images/navbar_profile.png",
-                color:
-                    selectedIndex == 3 ? Color(0xff1ED760) : Color(0xff808080),
-              ),
-              label: ""),
-        ],
-      ),
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: selectedIndex,
+            onTap: onTap,
+            elevation: 0,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.white,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Image.asset(
+                    "assets/images/navbar_home.png",
+                    color: selectedIndex == 0
+                        ? Color(0xff1ED760)
+                        : Color(0xff808080),
+                  ),
+                  label: ""),
+              BottomNavigationBarItem(
+                  icon: Image.asset(
+                    "assets/images/navbar_discover.png",
+                    color: selectedIndex == 1
+                        ? Color(0xff1ED760)
+                        : Color(0xff808080),
+                  ),
+                  label: ""),
+              BottomNavigationBarItem(
+                  icon: Image.asset(
+                    "assets/images/navbar_heart.png",
+                    color: selectedIndex == 2
+                        ? Color(0xff1ED760)
+                        : Color(0xff808080),
+                  ),
+                  label: ""),
+              BottomNavigationBarItem(
+                  icon: Image.asset(
+                    "assets/images/navbar_profile.png",
+                    color: selectedIndex == 3
+                        ? Color(0xff1ED760)
+                        : Color(0xff808080),
+                  ),
+                  label: ""),
+            ],
+          ),
 
-          
-        //  bottomNavigationBar: BottomNavigationBar(
-        //     items: const <BottomNavigationBarItem>[
-        //       BottomNavigationBarItem(
-        //         icon: Icon(Icons.home_max, size: 36,),
-        //         label: ""
-        //       ),
-        //       BottomNavigationBarItem(
-        //         icon: Icon(Icons.search, size: 36,),
-        //         label: '',
-        //       ),
-        //       BottomNavigationBarItem(
-        //         icon: Icon(Icons.person, size: 36,),
-        //         label: '',
-        //       ),
-              
-        //     ],
-        //     currentIndex: value.selectedIndex,
-        //     selectedItemColor: Colors.green[400],
-        //  onTap: (de) {
-           
-        //    value.onItemTapped(de);
-        //  },
-        //   ),
-        //   body:  _choice[value.selectedIndex]
-      
+          //  bottomNavigationBar: BottomNavigationBar(
+          //     items: const <BottomNavigationBarItem>[
+          //       BottomNavigationBarItem(
+          //         icon: Icon(Icons.home_max, size: 36,),
+          //         label: ""
+          //       ),
+          //       BottomNavigationBarItem(
+          //         icon: Icon(Icons.search, size: 36,),
+          //         label: '',
+          //       ),
+          //       BottomNavigationBarItem(
+          //         icon: Icon(Icons.person, size: 36,),
+          //         label: '',
+          //       ),
+
+          //     ],
+          //     currentIndex: value.selectedIndex,
+          //     selectedItemColor: Colors.green[400],
+          //  onTap: (de) {
+
+          //    value.onItemTapped(de);
+          //  },
+          //   ),
+          //   body:  _choice[value.selectedIndex]
         );
       },
     );

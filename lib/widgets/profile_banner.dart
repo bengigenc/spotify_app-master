@@ -36,11 +36,13 @@ class _ProfileBannerState extends State<ProfileBanner> {
         child:  value.isProfileDataLoaded==true? Column(
                           children: [
                             Container(
-                              height: 25.h,
-                              width: 25.w,
-                              child: Image.network(
-                                "${value.profileData!.images![0].url}",
-                              ),
+                              margin: EdgeInsets.only(bottom: 5.h),
+                              height: 17.h,
+                              width: 30.w,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(100),color: Colors.amber,image: DecorationImage(image: NetworkImage("${value.profileData!.images![0].url}"))),
+                              // child: Image.network(
+                              //   "",
+                              // ),
                             ),
                             Text("${value.profileData!.email!}"),
                             Text(
