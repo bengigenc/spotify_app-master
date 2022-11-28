@@ -14,6 +14,9 @@ Future<ProfileModel> getProfileService() async {
     'Authorization': '$api',
   };
 
+
+
+
   var url = 'https://api.spotify.com/v1/me';
   var res = await Dio().get(
     url,
@@ -23,4 +26,7 @@ Future<ProfileModel> getProfileService() async {
     throw Exception('http.get error: statusCode= ${res.statusCode}');
   profileData = ProfileModel.fromJson(res.data);
   return profileData;
+
+
+  
 }

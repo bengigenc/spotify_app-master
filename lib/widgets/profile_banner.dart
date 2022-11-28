@@ -37,9 +37,9 @@ class _ProfileBannerState extends State<ProfileBanner> {
                           children: [
                             Container(
                               margin: EdgeInsets.only(bottom: 5.h),
-                              height: 17.h,
+                              height: 30.w,
                               width: 30.w,
-                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(100),color: Colors.amber,image: DecorationImage(image: NetworkImage("${value.profileData!.images![0].url}"))),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(200),color: Colors.amber,image: DecorationImage(image: NetworkImage("${value.profileData!.images![0].url}"))),
                               // child: Image.network(
                               //   "",
                               // ),

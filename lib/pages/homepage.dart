@@ -36,7 +36,7 @@ class _HomePagesState extends State<HomePages> {
                 HomeBanner(),
                 Positioned(
                   child: Image.asset("assets/images/billie.png"),
-                  left: 40.w,
+                  left: 40.w,top: 4.2.h,
                 )
               ],
             ),

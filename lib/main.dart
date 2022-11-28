@@ -11,6 +11,7 @@ import 'package:spotify_app/providers/modeList_provider.dart';
 import 'package:spotify_app/providers/profileList_provider.dart';
 import 'package:spotify_app/providers/profile_provider.dart';
 import 'package:spotify_app/providers/releases_provider.dart';
+import 'package:spotify_app/providers/search_provider.dart';
 import 'package:spotify_app/widgets/home_ArtistBanner.dart';
 import 'package:spotify_app/widgets/home_Banner.dart';
 import 'package:spotify_app/widgets/home_ListText.dart';
@@ -34,6 +35,9 @@ void main() {
     ),
     ChangeNotifierProvider(
       create: (context) => ModeListProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => SearchProvider(),
     ),
   ]));
 }
